@@ -1,16 +1,12 @@
 import './ExpenseItem.css';
 
-function ExpenseItem() {
-    const expenseDate = new Date(2022, 2, 8);
-    const expenseTitle = 'Achat fruits et légumes 🥦 🍊';
-    const expenseAmount = 10.50;
-    
+function ExpenseItem(props) {    
     return (
         <div className="expense-item">
-            <div>{ expenseDate.toLocaleDateString() }</div>
+            <div>{ props.date.toLocaleDateString() }</div>
             <div className="expense-item__description">
-                <h2>{ expenseTitle }</h2>
-                <div className="expense-item__price">{ expenseAmount.toFixed(2) }€</div>
+                <h2>{ props.title }</h2>
+                <div className="expense-item__price">{ props.amount.toFixed(2) }€</div>
             </div>
         </div>
     )
