@@ -5,7 +5,7 @@ import './Expenses.css';
 /**
  * Version 1 (Naive)
  */
-// function Expenses(props) {
+// const Expenses = (props) => {
 //     return (
 //         <div>
 //             <ExpenseItem
@@ -30,7 +30,7 @@ import './Expenses.css';
 /**
  * Version 2 (Elaborate)
  */
-function Expenses(props) {
+const Expenses = (props) => {
     const listExpense = props.expenses.map((expense) => {
        return <ExpenseItem
             title={expense.title}
