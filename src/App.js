@@ -20,6 +20,12 @@ const App = () => {
       amount: 33.75,
       date: new Date(2022, 0, 18)
     },
+    {
+      id: 'e4',
+      title: 'Repas midi ',
+      amount: 12.75,
+      date: new Date(2022, 0, 9)
+    },
   ]
   return (
     <div>

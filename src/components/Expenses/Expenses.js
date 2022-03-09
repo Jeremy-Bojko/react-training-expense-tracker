@@ -33,6 +33,7 @@ import './Expenses.css';
 const Expenses = (props) => {
     const listExpense = props.expenses.map((expense) => {
        return <ExpenseItem
+            key={expense.id}
             title={expense.title}
             amount={expense.amount}
             date={expense.date}
@@ -40,6 +41,7 @@ const Expenses = (props) => {
     })
     return (
         <Card className='expenses'>{listExpense}</Card>
+
     );
 }
 
