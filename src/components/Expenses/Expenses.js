@@ -33,32 +33,33 @@ import ExpensesFilter from "./ExpensesFilter";
  * Version 2 (Elaborate)
  */
 const Expenses = (props) => {
-    const [filterDate, setFilterDate] = useState(2020);
-
-    const renderListExpense = () => {
-        const displayedExpenses = props.expenses.filter(expense => expense.date.getFullYear() === filterDate);
-
-        return displayedExpenses.map((expense) => {
-            return (
-                <ExpenseItem
-                    key={expense.id}
-                    title={expense.title}
-                    amount={expense.amount}
-                    date={expense.date}
-                />
-            );
-        });
-    };
+    const [filterDate, setFilterDate] = useState("2020");
 
     const handleSelectedDate = (changedDate) => {
-        console.log(changedDate);
         setFilterDate(changedDate);
     }
 
+    const displayedExpenses = props.expenses.filter(expense => 
+        expense.date.getFullYear().toString() === filterDate
+    );
+
     return (
         <Card className='expenses'>
-            <ExpensesFilter initSelected={filterDate} onSelectedDate={handleSelectedDate}/>
-            {renderListExpense()}
+            <ExpensesFilter 
+                initSelected={filterDate} 
+                onSelectedDate={handleSelectedDate}
+            />
+
+            {displayedExpenses.length === 0 && <p>Pas de dépenses !</p> }
+            {displayedExpenses.length > 0 && displayedExpenses.map((expense) => 
+                    <ExpenseItem
+                        key={expense.id}
+                        title={expense.title}
+                        amount={expense.amount}
+                        date={expense.date}
+                    />
+                )
+            }
         </Card>
     );
 }
