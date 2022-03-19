@@ -39,7 +39,9 @@ const App = () => {
   
   return (
     <div>
-      <NewExpense onEmitNewExpense={handleNewExpense}/>
+      <NewExpense 
+        onEmitNewExpense={handleNewExpense}
+      />
       <Expenses 
         expenses={expenses} 
       />
