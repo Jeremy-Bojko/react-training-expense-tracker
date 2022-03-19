@@ -3,6 +3,7 @@ import Card from "../UI/Card";
 import ExpenseItem from "./ExpenseItem";
 import './Expenses.css';
 import ExpensesFilter from "./ExpensesFilter";
+import ExpensesList from "./ExpensesList";
 
 /**
  * Version 1 (Naive)
@@ -43,18 +44,7 @@ const Expenses = (props) => {
         expense.date.getFullYear().toString() === filterDate
     );
 
-    let expenseContent = <p>Pas de dépenses !</p>;
-
-    if(displayedExpenses.length > 0) {
-        expenseContent = displayedExpenses.map((expense) => (
-        <ExpenseItem
-            key={expense.id}
-            title={expense.title}
-            amount={expense.amount}
-            date={expense.date}
-        />)
-    )
-    }
+    
 
     return (
         <Card className='expenses'>
@@ -62,7 +52,8 @@ const Expenses = (props) => {
                 initSelected={filterDate} 
                 onSelectedDate={handleSelectedDate}
             />
-            {expenseContent}
+
+            <ExpensesList expenses={displayedExpenses}/>
             {/* {displayedExpenses.length === 0 && <p>Pas de dépenses !</p> }
             {displayedExpenses.length > 0 && displayedExpenses.map((expense) => 
                     <ExpenseItem
