@@ -2,6 +2,7 @@ import { useState } from "react";
 import Card from "../UI/Card";
 import ExpenseItem from "./ExpenseItem";
 import './Expenses.css';
+import ExpensesChart from "./ExpensesChart";
 import ExpensesFilter from "./ExpensesFilter";
 import ExpensesList from "./ExpensesList";
 
@@ -52,6 +53,7 @@ const Expenses = (props) => {
                 initSelected={filterDate} 
                 onSelectedDate={handleSelectedDate}
             />
+            <ExpensesChart expenses={displayedExpenses}/>
 
             <ExpensesList expenses={displayedExpenses}/>
             {/* {displayedExpenses.length === 0 && <p>Pas de dépenses !</p> }
